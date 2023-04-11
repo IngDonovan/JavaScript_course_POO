@@ -111,3 +111,113 @@ const camilo = new Student3({
     name: "Camilo",
 }
 );//no importa el orden
+
+//ventajas de la programacion orientada a objetos
+
+//trabajamos con objetos literales
+// const juan1 = {
+//     name: "JuanDC",
+//     userName: "juandc",
+//     points: 100,
+//     socialMedia: {
+//         twitter: "fjuandc",
+//         instagram: "fjuandc",
+//         facebook: undefined,
+//     },
+//     approvedCourses: [
+//         "Curso 1",
+//         "Curso 2",
+//         "Curso 3",
+//     ],
+//     learningPaths: [
+//         {
+//             name: "Ecuela...",
+//             courses: [
+//                 "Curso 1",
+//                 "Curso 2",
+//                 "Curso 4",
+//             ]
+//         },
+//         {
+//             name: "Ecuela video...",
+//             courses: [
+//                 "Curso a1",
+//                 "Curso a2",
+//                 "Curso a3",
+//             ]
+//         }
+//     ],
+// }
+// const carlos1 = {
+//     name: "Carlos",
+//     userName: "CarlosDC",
+//     points: 1000,
+//     socialMedia: {
+//         twitter: "fdcarlos",
+//         instagram: "fdcarlos",
+//         facebook: undefined,
+//     },
+//     approvedCourses: [
+//         "Curso aaa1",
+//         "Curso 2ddd",
+//         "Curso 3dddd",
+//     ],
+//     learningPaths: [
+//         {
+//             name: "Ecuela...",
+//             courses: [
+//                 "Curso 1",
+//                 "Curso 2",
+//                 "Curso 4",
+//             ]
+//         },
+//         {
+//             name: "Ecuela dATA...",
+//             courses: [
+//                 "Curso aaa1",
+//                 "Curso 2ddd",
+//                 "Curso 3dddd",
+//             ]
+//         }
+//     ],
+// }
+//es muy grande y poco eficiente
+
+//objetos a clases
+
+class Student4 {
+    constructor ({
+        name,
+        email,
+        userName,
+        twitter = undefined,
+        instagram = undefined,
+        facebook = undefined,
+        approvedCourses = [],
+        learningPaths = [],
+    }) {
+        this.name = name;
+        this.email = email;
+        this.userName = userName;
+        this.socialMedia = {
+            twitter,
+            instagram,
+            facebook,
+        };
+        this.approvedCourses = approvedCourses;
+        this.learningPaths = learningPaths;
+    }
+}
+
+const juan2 = new Student4({
+    name: "JuanDC",
+    userName: "juandc",
+    email: "juanito@guan.com",
+    twitter: "fjuandc",
+});
+const carlos2 = new Student4({
+    name: "carloDC",
+    userName: "carlodc",
+    email: "carloto@guan.com",
+    instagram: "fcarlodc",
+});
