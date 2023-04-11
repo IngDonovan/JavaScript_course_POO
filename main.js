@@ -185,6 +185,15 @@ const camilo = new Student3({
 
 //objetos a clases
 
+class LearningPaths1 {
+
+}
+
+// const escuelaWeb = new LearningPaths1();
+// const escuelaData = new LearningPaths1();
+// const escuelaVgs = new LearningPaths1();
+
+
 class Student4 {
     constructor ({
         name,
@@ -221,3 +230,33 @@ const carlos2 = new Student4({
     email: "carloto@guan.com",
     instagram: "fcarlodc",
 });
+
+
+class LearningPath2 {
+    constructor({
+      name,
+      courses = [],
+    }) {
+      this.name = name;
+      this.courses = courses;
+    }
+  }
+  
+  const escuelaWeb = new LearningPath2({
+    name: "Escuela de Desarrollo Web",
+    courses: [
+      cursoJS,
+      cursoReact,
+      cursoNextJS,
+    ],
+  });
+  
+  const escuelaData = new LearningPath2({
+    name: "Escuela de Data Science",
+    courses: [
+      cursoPython,
+      CursoMatematicas,
+      CursoExcel,
+    ],
+  });
+  
