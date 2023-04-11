@@ -75,3 +75,39 @@ const miguelito = new Student2(
         "Curso de Principios de visualización de Datos "
     ],
 );
+
+// miguelito.aprobarCurso("Curso de Tableau");
+
+// miguelito.cursosAprobados
+
+//Roro
+
+//en vez de recibir varios parametros podemos recibir un solo parámetro que sea de tipo objeto:
+
+class Student3 {
+    //con el metodo constructor
+    constructor({
+        name,
+        age,
+        cursosAprobados = [],
+        email,
+        facebook,
+    }){
+        this.name = name;
+        this.age = age;
+        this.cursosAprobados = cursosAprobados;
+        this.email = email;
+        this.facebook = facebook;
+    }
+    //crear metodos
+    aprobarCurso(nuevoCursito){
+        this.cursosAprobados.push(nuevoCursito);
+    }
+}
+
+const camilo = new Student3({
+    email: "camilo@platzi.com",
+    age: 28,
+    name: "Camilo",
+}
+);//no importa el orden
