@@ -29,9 +29,13 @@ class Course {
     constructor({
       name,
       classes = [],
+      isFree = false,
+      lang = "spanish",
     }) {
       this._name = name;
       this.classes = classes;
+      this.isFree = isFree;
+      this.lang = lang;
     }
   
     get name() {
@@ -49,6 +53,7 @@ class Course {
   
   const cursoProgBasica = new Course({
     name: "Curso Gratis de Programación Básica",
+    isFree: true,
   });
   
   const cursoDefinitivoHTML = new Course({
@@ -56,6 +61,7 @@ class Course {
   });
   const cursoPracticoHTML = new Course({
     name: "Curso Practico de HTML y CSS",
+    isFree: true,
   });
   
   
@@ -117,6 +123,40 @@ class Course {
       };
       this.approvedCourses = approvedCourses;
       this.learningPaths = learningPaths;
+    }
+  }
+
+  class FreeStudent extends Student {
+    constructor(props){
+      super(props);
+    }
+    approvedCourses(newCourse){
+      if (newCourse.isFree){
+        this.approvedCourses.push(newCourse);
+      }else {
+        console.warn("Lo sentimos, " + this.name + ", solo puedes tomar cursos abiertos");
+      }
+    }
+  }
+  class BasicStudent extends Student {
+    constructor(props){
+      super(props);
+    }
+    approvedCourses(newCourse){
+      if (newCourse.lang !== "en"){
+        this.approvedCourses.push(newCourse);
+      }else {
+        console.warn("Lo sentimos, " + this.name + ", no puedes tomar cursos en ingles");
+      }
+    }
+  }
+  class ExpertStudent extends Student {
+    constructor(props){
+      super(props);
+    }
+    approvedCourses(newCourse){
+        this.approvedCourses.push(newCourse);
+
     }
   }
   
