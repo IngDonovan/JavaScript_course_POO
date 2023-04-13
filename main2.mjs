@@ -1,3 +1,30 @@
+function videoPlay(id) {
+    const urlSecret = 'https://platzisssss.com' + id;
+    console.log('Se está re`roduciendo desde la url ' + urlSecret);
+}
+function videoStop(id) {
+    const urlSecret = 'https://platzisssss.com' + id;
+    console.log('Pausamos la Url ' + urlSecret);
+}
+
+export class PlatziClass {
+    constructor ({
+        name,
+        videoID,
+    }){
+        this.name = name;
+        this.videoID = videoID;
+    }
+
+    reproducir(){
+        videoPlay(this.videoID);
+    }
+    pausar(){
+        videoStop(this.videoID);
+    }
+}
+
+
 class Course {
     constructor({
       name,

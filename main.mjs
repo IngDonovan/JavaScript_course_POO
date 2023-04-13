@@ -1,9 +1,9 @@
 
-import Course from './course.js'
-import Teacher from './teacher.js'
-import Lesson from './lesson.js'
-import LearningPath from './learningPath.js'
-import Student from './student.js'
+import Course from './course.mjs'
+import Teacher from './teacher.mjs'
+import Lesson from './lesson.mjs'
+import LearningPath from './learningPath.mjs'
+import Student from './student.mjs'
 
 
 //* Teachers ---------------------
