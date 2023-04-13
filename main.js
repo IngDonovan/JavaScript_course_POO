@@ -1,6 +1,6 @@
 
 import Course from './course.js'
-import Teacher from './Teacher.js'
+import Teacher from './teacher.js'
 import Lesson from './lesson.js'
 import LearningPath from './learningPath.js'
 import Student from './student.js'
