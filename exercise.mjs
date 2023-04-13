@@ -367,3 +367,66 @@ class LearningPath2 {
     Integrante,
   }
   
+
+//otro ejercicio
+
+export class Course {
+  #name;
+  constructor({
+    name,
+    classes = [],
+  }) {
+    this.#name = name;
+    this.classes = classes;
+  }
+
+  get name() {
+    // Tu código aquí 👈
+    return this.#name;
+  }
+
+  set name(nuevoNombrecito) {
+    // Tu código aquí 👈
+    if (typeof nuevoNombrecito !== "string") {
+      console.log("Parce no puedes hacer eso");
+    } else {
+      this._name = nuevoNombrecito[0].toUpperCase() + nuevoNombrecito.slice(1);
+    }
+  }
+}
+
+const courseName = "curso de programación básica";
+const nombreMaysuculas = new Course({
+  name: courseName,
+})
+nombreMaysuculas.name = courseName;
+
+
+//el correcto fue
+
+export class Course {
+  constructor({
+    name,
+    classes = [],
+  }) {
+    this.name = name;
+    this.classes = classes;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(nuevoNombrecito) {
+    if (typeof nuevoNombrecito === "string") {
+      nuevoNombrecito = nuevoNombrecito.trim()
+      if (nuevoNombrecito.length !== 0) {
+        let words = nuevoNombrecito.split(" ")
+        let nuevoNombrecitoMayusculas = words.map((word) => {
+          if (word.length > 0) return `${word[0].toUpperCase()}${word.slice(1)}`;
+        }).join(" ")
+        this._name = nuevoNombrecitoMayusculas
+      }
+    }
+  }
+}
