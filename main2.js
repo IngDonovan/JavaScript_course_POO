@@ -1,3 +1,24 @@
+class Comment {
+  constructor ({
+    content,
+    studentName,
+    studentRole = "estudiante",
+  })
+  {
+    this.content = content;
+    this.studentName = studentName;
+    this.studentRole = studentRole;
+    this.likes = 0;
+  }
+
+  publicar() {
+    console.log(this.studentName + " (" + this.studentRole + ")");
+    console.log(this.likes + " likes");
+    console.log(this.content);
+  }
+}
+
+
 function videoPlay(id) {
     const urlSecret = 'https://platzisssss.com' + id;
     console.log('Se está re`roduciendo desde la url ' + urlSecret);
@@ -6,6 +27,7 @@ function videoStop(id) {
     const urlSecret = 'https://platzisssss.com' + id;
     console.log('Pausamos la Url ' + urlSecret);
 }
+//esto export with.mjs
 
 class PlatziClass {
     constructor ({
@@ -124,7 +146,18 @@ class Course {
       this.approvedCourses = approvedCourses;
       this.learningPaths = learningPaths;
     }
+
+    publicarComentario(commentContent){
+
+      const comment = new Comment ({
+        content: commentContent,
+        studentName: this.name,
+      });
+      comment.publicar();
+    }
   }
+
+
 
   class FreeStudent extends Student {
     constructor(props){
@@ -159,6 +192,24 @@ class Course {
 
     }
   }
+  class TeacherStudent extends Student {
+    constructor(props){
+      super(props);
+    }
+    approveCourse(newCourse){
+        this.approvedCourses.push(newCourse);
+    }
+
+    publicarComentario(commentContent){ //polimosfirmo
+
+      const comment = new Comment ({
+        content: commentContent,
+        studentName: this.name,
+        studentRole: "Profesor",
+      });
+      comment.publicar();
+    }
+  }
   
   const juan = new FreeStudent({
     name: "JuanDC",
@@ -180,4 +231,12 @@ class Course {
       escuelaWeb,
       escuelaData,
     ],
+  });
+
+  const Freddy = new TeacherStudent({
+    name: "Freddy Vega",
+    username: "fedy",
+    email: "fedry@gma.com",
+    instagram: "freddier",
+    
   });
