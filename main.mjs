@@ -5,6 +5,10 @@ import Lesson from './lesson.mjs'
 import LearningPath from './learningPath.mjs'
 import Student from './student.mjs'
 
+import FreeStudent from './freeStudent.mjs'
+import BasicStudent from './basicStudent.mjs'
+import ExpertStudent from './expertStudent.mjs'
+
 
 //* Teachers ---------------------
 const FreddyVega = new Teacher({
@@ -71,7 +75,7 @@ console.log(escuelaMarketingDigital);
 
 
 //* Estudiantes ---------------------
-const miguel = new Student({
+const miguel = new ExpertStudent({
   id: 1,
   name: 'Miguel',
   email: 'miguel@gmail.com',
@@ -81,3 +85,24 @@ const miguel = new Student({
   learningPaths: [escuelaDesarrolloWeb]
 });
 console.log(miguel);
+
+const juan = new FreeStudent({
+  id: 2,
+  name: 'Juan',
+  email: 'juan@gmail.com',
+  username: 'juanDC',
+  points:  100000,
+})
+console.log(juan)
+juan.approveCourse(cursoProgramacionBasica)
+juan.approveCourse(cursoIntroMarketingDigital)
+console.log(juan.approvedCourses)
+
+const daniel = new BasicStudent({
+  id: 3,
+  name: 'Daniel',
+})
+console.log(daniel)
+daniel.approveCourse(cursoProgramacionBasica)
+daniel.approveCourse(cursoIntroMarketingDigital)
+console.log(daniel.approvedCourses)
